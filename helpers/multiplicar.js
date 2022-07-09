@@ -1,7 +1,7 @@
 const fs = require('fs')
 require('colors')
 
-const crearArchivo = async ( base = 5 , listar) => {
+const crearArchivo = async ( base = 5 , listar, hasta) => {
 
     try {
         
@@ -9,7 +9,7 @@ const crearArchivo = async ( base = 5 , listar) => {
 
         let salida = ''
 
-        for(let i=1 ; i<=10 ; i++){
+        for(let i=1 ; i<=hasta ; i++){
             salida += ( `${base} x ${i} = ${base * i}\n` )
         }
 
