@@ -1,39 +1,9 @@
 const { crearArchivo } = require('./helpers/multiplicar')
-const argv = require('yargs')
-                .options({
-                    'b':{
-                        alias: 'base',
-                        type: 'number',
-                        demandOption: true
-                    },
-                    'l':{
-                        alias: 'listar',
-                        type: 'boolean',
-                        demandOption: true,
-                        default: false
-                    }
-                })
-                .check( (argv, options) => {
-                    if(isNaN(argv.b)){
-                        throw 'La base tiene que ser un numero'
-                    }
-                    return true
-                } )
-                .argv
+const argv = require('./config/yargs')
 
 // Mostrar siempre limpia la consola
 console.clear()
 
-
-// Trabajar con argumentos desde la consola
-// Forma 1
-// const [,,arg3 = 'base=5'] = process.argv
-// const [,base = 5] = arg3.split('=')
-
-// Forma 2
-console.log(argv)
-
-// const base = 2
 // Importar nuestros propios archivos
 crearArchivo(argv.b, argv.l)
     .then(nombreArchivo => console.log(nombreArchivo))
